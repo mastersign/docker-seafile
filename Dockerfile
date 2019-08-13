@@ -1,5 +1,5 @@
 FROM		phusion/baseimage
-MAINTAINER	Jens Erat <email@jenserat.de>
+MAINTAINER	Tobias Kiertscher <dev@mastersign.de>
 
 ENV DEBIAN_FRONTEND noninteractive
 
