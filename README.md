@@ -1,4 +1,4 @@
-# Seafile 5 for Docker
+# Seafile 7 for Docker
 
 [Seafile](http://www.seafile.com/) is a "next-generation open source cloud storage
 with advanced features on file syncing, privacy protection and teamwork".
@@ -26,7 +26,7 @@ For example, you could use
 Consider using a reverse proxy for using HTTPs.
 
 1. After the container is started, run `download-seafile` to download Seafile and prepare setting it up.
-2. Once downloaded, run `/opt/seafile/seafile-server-5.*/setup-seafile.sh`, and go through the setup assistant. Do not change the port and storage location defaults, but change the run command appropriately.
+2. Once downloaded, run `/opt/seafile/seafile-server-7.*/setup-seafile.sh`, and go through the setup assistant. Do not change the port and storage location defaults, but change the run command appropriately.
 3. Run `/opt/seafile/seafile-server-latest/seafile.sh start` to start the seafile controller process.
 3. Run `/opt/seafile/seafile-server-latest/seahub.sh start` for configuring the web UI.
 4. If you want, do more configuration of Seafile. You can also already try it out.
