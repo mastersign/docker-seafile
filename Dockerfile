@@ -25,15 +25,13 @@ RUN mkdir /opt/seafile
 VOLUME /opt/seafile
 EXPOSE 10001 12001 8000 8080 8082
 
-# Baseimage init process
-ENTRYPOINT ["/sbin/my_init"]
-
 # Seafile daemons
 RUN mkdir /etc/service/seafile /etc/service/seahub
-ADD seafile.sh /etc/service/seafile/run
-ADD seahub.sh /etc/service/seahub/run
+COPY seafile.sh /etc/service/seafile/run
+COPY seahub.sh /etc/service/seahub/run
 
-ADD download-seafile.sh /usr/local/sbin/download-seafile
+# Helper script for downloading latest server release
+COPY download-seafile.sh /usr/local/sbin/download-seafile
 
-# Clean up for smaller image
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+# Baseimage init process
+ENTRYPOINT ["/sbin/my_init"]
