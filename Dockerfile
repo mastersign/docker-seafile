@@ -4,8 +4,20 @@ MAINTAINER	Jens Erat <email@jenserat.de>
 ENV DEBIAN_FRONTEND noninteractive
 
 # Seafile dependencies and system configuration
-RUN apt-get update && \
-    apt-get install -y python2.7 python-setuptools python-simplejson python-imaging sqlite3 python-mysqldb python-memcache python-urllib3 wget socat
+RUN apt-get update \
+ && apt-get install -y \
+    	python2.7 \
+    	python-setuptools \
+    	python-simplejson \
+    	python-imaging \
+    	sqlite3 \
+    	python-mysqldb \
+    	python-memcache \
+    	python-urllib3 \
+    	wget \
+    	socat \
+ && apt-get clean \
+ && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 RUN ulimit -n 30000
 
 # Interface the environment
