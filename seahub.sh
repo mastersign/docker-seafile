@@ -3,7 +3,7 @@
 log=/var/log/seafile.log
 
 function stop_server() {
-  ps ax | grep run_gunicorn | awk '{ print $1 }' | xargs kill
+    /opt/seafile/seafile-server-latest/seahub.sh stop >> $log 2>&1
 }
 
 trap stop_server SIGINT SIGTERM
@@ -18,7 +18,10 @@ else
 fi
 
 # Script should not exit unless seahub died
-while pgrep -f "manage.py run_gunicorn" 2>&1 >/dev/null; do
+while pgrep -f "/opt/seafile/seafile-server-latest/seahub/manage.py" 2>&1 >/dev/null; do
+    sleep 5;
+done
+while pgrep -f "seahub.wsgi:application" 2>&1 >/dev/null; do
     sleep 5;
 done
 

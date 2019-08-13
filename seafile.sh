@@ -3,7 +3,7 @@
 log=/var/log/seafile.log
 
 function stop_server() {
-    kill $( ps ax | grep -E 'seafile-controller|ccnet-server|seaf-server' | grep -v grep | awk '{ print $1 }' | xargs )
+    /opt/seafile/seafile-server-latest/seafile.sh stop >> $log 2>&1
     exit 0
 }
 
